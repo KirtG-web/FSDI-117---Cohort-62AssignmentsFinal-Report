@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h1>Projects</h1>
+
+<ul>
+    {% for project in projects %}
+    <li>
+        <strong>{{ project.title }}</strong><br>
+        {{ project.description }}<br>
+
+        {% if project.link %}
+        <a href="{{ project.link }}" target="_blank">
+            View Project
+        </a>
+        {% endif %}
+    </li>
+    <hr>
+    {% empty %}
+    <li>No projects added yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
